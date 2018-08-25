@@ -168,8 +168,7 @@ export default {
   plugins: [
     new HtmlWebpackPlugin({
       favicon: paths.appFavicon,
-      title:
-        'UIW React, A high quality UI Toolkit, A Component Library for React 16+.',
+      title: 'tz-react-design',
       inject: true,
       template: paths.appHtml,
       minify: {

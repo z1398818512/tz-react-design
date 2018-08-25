@@ -1,14 +1,14 @@
 {
-  "name": "@tzfe/uiw",
-  "version": "1.15.11",
-  "description": "A high quality UI Toolkit, A Component Library for React 16+.",
-  "homepage": "https://uiw-react.github.io",
+  "name": "@tzfe/tz-react-design",
+  "version": "0.0.1",
+  "description": " A Component Library for React 16+.",
+  "homepage": "http://git.tanzk.cn/frontend/teaching/tz-react-design.git",
   "authors": [
-    "Kenny Wang <wowohoo@qq.com>"
+    "大师兄<876337269@qq.com>"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/uiw-react/uiw.git"
+    "url": "git+http://git.tanzk.cn/frontend/teaching/tz-react-design.git"
   },
   "main": "lib/index.js",
   "scripts": {
@@ -26,8 +26,6 @@
     "deploy": "npm run build:lib && npm run build && node ./script/deploy.js"
   },
   "keywords": [
-    "uiw",
-    "uiw-react",
     "react.js",
     "react",
     "component",
@@ -122,5 +120,13 @@
     "*.less": "stylelint --syntax=less"
   },
   "author": "kenny wang <wowohoo@qq.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "http://git.tanzk.cn/frontend/teaching/tz-react-design/issues"
+  },
+  "directories": {
+    "doc": "docs",
+    "lib": "lib",
+    "test": "test"
+  }
 }

@@ -14,12 +14,14 @@ compiler.run((err, stats) => {
   // https://github.com/webpack/webpack/issues/538#issuecomment-59586196
   if (stats) {
     /* eslint-disable */
-    console.log(stats.toString({
-      colors: true,
-      children: false,
-      chunks: false,
-      modules: false,
-    }));
+    console.log(
+      stats.toString({
+        colors: true,
+        children: false,
+        chunks: false,
+        modules: false,
+      })
+    );
     /* eslint-enable */
   }
 });

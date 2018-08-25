@@ -6,12 +6,12 @@ const fs = require('fs');
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
-//判断是不是目录
+// 判断是不是目录
 function isDir(_path) {
   return exists(_path) && fs.statSync(_path).isDirectory();
 }
 
-//检查指定路径的文件或者目录是否存在
+// 检查指定路径的文件或者目录是否存在
 function exists(_path) {
   return fs.existsSync(_path);
 }
@@ -20,11 +20,15 @@ function exists(_path) {
 // 这些路径用于Webpack配置中
 function readSrcSync(filepath, ret) {
   ret = ret || [];
-  let files = fs.readdirSync(filepath);
-  for (var i = 0; i < files.length; i++) {
-    let curPath = path.resolve(filepath, files[i]);
+  const files = fs.readdirSync(filepath);
+  for (let i = 0; i < files.length; i++) {
+    const curPath = path.resolve(filepath, files[i]);
     if (isDir(curPath)) {
-      if (files[i] !== 'style' && files[i] !== 'font' && files[i] !== '__test__') {
+      if (
+        files[i] !== 'style' &&
+        files[i] !== 'font' &&
+        files[i] !== '__test__'
+      ) {
         readSrcSync(curPath, ret);
       }
     } else if (/\.(js)$/.test(files[i])) {
@@ -39,7 +43,7 @@ module.exports = {
   appDocs: resolveApp('docs'),
   appHtml: resolveApp('script/public/index.html'),
   appIndexJs: resolveApp('docs/index.js'),
-  appFavicon: resolveApp('docs/assets/favicon.png'),
+  appFavicon: resolveApp('docs/assets/favicon.ico'),
   appSrc: resolveApp('src'),
   readSrcSync,
 };
