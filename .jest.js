@@ -1,53 +1,30 @@
-const libDir = process.env.LIB_DIR;
-
-const transformIgnorePatterns = [
-  '/dist/',
-  'node_modules/[^/]+?/(?!(es|node_modules)/)', // Ignore modules without es dir
-];
 
 module.exports = {
-  verbose: true,
-  setupFiles: [
-    './tests/setup.js',
+  "testRegex": "\\.test\\.js$",
+  "testPathIgnorePatterns": [
+    "/node_modules/",
   ],
-  moduleFileExtensions: [
-    'ts',
-    'tsx',
-    'js',
-    'jsx',
-    'json',
-    'md',
-  ],
-  modulePathIgnorePatterns: [
-    '/_site/',
-  ],
-  testPathIgnorePatterns: [
-    '/node_modules/',
-    'dekko',
-    'node',
-  ],
-  transform: {
-    '\\.tsx?$': './node_modules/antd-tools/lib/jest/codePreprocessor',
-    '\\.js$': './node_modules/antd-tools/lib/jest/codePreprocessor',
-    '\\.md$': './node_modules/antd-tools/lib/jest/demoPreprocessor',
+  // 代表需要被 Mock 的资源名称。如果需要 Mock 静态资源（如less、scss等），
+  // 则需要配置 Mock 的路径 <rootDir>/__mocks__/yourMock.js
+  "moduleNameMapper": {
+    "\\.(css|less)$": "identity-obj-proxy"
   },
-  testRegex: libDir === 'dist' ? 'demo\\.test\\.js$' : '.*\\.test\\.js$',
-  collectCoverageFrom: [
-    'components/**/*.{ts,tsx}',
-    '!components/*/style/index.tsx',
-    '!components/style/index.tsx',
-    '!components/*/locale/index.tsx',
-    '!components/*/__tests__/**/type.tsx',
-    '!components/**/*/interface.{ts,tsx}',
-  ],
-  transformIgnorePatterns,
-  snapshotSerializers: [
-    'enzyme-to-json/serializer',
-  ],
-  globals: {
-    'ts-jest': {
-      tsConfigFile: './tsconfig.test.json',
-    },
+  "modulePaths": ['<rootDir>/src'],
+  // 用于编译 ES6/ES7 语法，需配合 babel-jest 使用
+  "transform": {
+    // "\\.(png|eot|svg|ttf|woff|woff2)(\\?.+)?$": "<rootDir>/tests/jest/mock.js",
+    "^.+\\.js$": "babel-jest"
   },
-  testURL: 'http://localhost',
-};
+  "roots": ["<rootDir>/src/"],
+  "collectCoverageFrom": [
+    'src/**/*.{js,jsx}',
+  ],
+  "setupTestFrameworkScriptFile": "<rootDir>/test/jest.config.js",
+  // 代表支持加载的文件名，
+  // 与 Webpack 中的 resolve.extensions 类似
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "jsx"
+  ]
+}
