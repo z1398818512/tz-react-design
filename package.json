@@ -119,7 +119,6 @@
     "webpack-hot-dev-clients": "^1.0.4"
   },
   "lint-staged": {
-    "*.js": "lint-staged:js",
     "*.less": "stylelint --syntax=less"
   },
   "author": "kenny wang <wowohoo@qq.com>",
