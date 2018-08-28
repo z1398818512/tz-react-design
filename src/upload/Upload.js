@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Upload from 'rc-upload';
 import { Line } from 'rc-progress';
-
 import axios from 'axios';
 import { rejects } from 'assert';
-import styles from './upload.less';
+import './upload.less';
 import Message from '../message';
 import upload from '../../static/assetsUpload.png';
 
@@ -216,23 +215,23 @@ export default class UploadFile extends React.Component {
 
     const fileList = this.state.fileList;
     return (
-      <div className={'uploadContainer'}>
+      <div className="uploadContainer">
         <Upload {...uploaderProps}>
           {this.props.children ? (
             this.props.children
           ) : (
-            <div className={'uploadButton'}>
+            <div className="uploadButton">
               <img src={upload} alt="upload" />
               上传
             </div>
           )}
         </Upload>
-        <div className={styles.fileList}>
+        <div className="fileList">
           {fileList.length
             ? fileList.map((file, index) => (
-                <div key={index} className={styles.flieBox}>
+                <div key={index} className="flieBox">
                   <a
-                    className={styles.fileName}
+                    className="fileName"
                     href={file.url ? file.url : null}
                     download={file.url ? file.url : null}
                     target="_black"
@@ -240,7 +239,7 @@ export default class UploadFile extends React.Component {
                     {file.name}
                   </a>
                   <span
-                    className={styles.deleButton}
+                    className="deleButton"
                     onClick={this.onDelete.bind(this, file, index)}
                   >
                     删除
