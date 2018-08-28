@@ -2,9 +2,8 @@ module.exports = {
   page: {
     'quick-start': '快速上手',
     theme: '主题定制',
-    button: 'Button 按钮',
-    icon: 'Icon 图标',
     upload: 'Upload 上传图片',
+    message: 'message 全局提示',
   },
   category: {
     Form: '表单',

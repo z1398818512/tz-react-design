@@ -8,13 +8,13 @@ import {
 } from 'react-router-dom';
 import React, { Component } from 'react';
 import locales from './locales';
-import { Icon, version } from '../src';
+import { version } from '../src';
 import Logo from './assets/logo.png';
 import ScrollToTop from 'react-scroll-up';
 import { routes, getLang } from './Routers';
 
 // 获取所有路由
-const getRoutesTotal = (obj) => {
+const getRoutesTotal = obj => {
   const _obj = obj || routes;
   let arr = [];
   for (const a in _obj) {
@@ -42,7 +42,7 @@ const getRoutes = () => {
   });
 };
 
-const getPageName = (location) => {
+const getPageName = location => {
   const routes = location.match(/(?:\/(.+))?(\/(.+)\?|\/(.+))/);
   if (routes) {
     return routes[3] || routes[4];
@@ -70,7 +70,7 @@ const renderMenuLi = (item, idx) => {
   );
 };
 
-const renderMenu = (obj) => {
+const renderMenu = obj => {
   const _obj = obj || routes;
   let html = [];
   for (const a in _obj) {
@@ -123,28 +123,28 @@ const RoutersContainer = withRouter(({ history, location, ...props }) => {
               rel="noopener noreferrer"
               href="http://git.tanzk.cn/frontend/teaching/tz-react-design/issues"
             >
-              <Icon type="message" /> 反馈建议
+              反馈建议
             </a>
             <a
               target="_blank"
               rel="noopener noreferrer"
               href="http://git.tanzk.cn/frontend/teaching/tz-react-design/issues/new"
             >
-              <Icon type="question-circle" /> 提交bug
+              提交bug
             </a>
             <a
               target="_blank"
               rel="noopener noreferrer"
               href="http://git.tanzk.cn/frontend/teaching/tz-react-design"
             >
-              <Icon type="github" /> Github
+              Github
             </a>
           </div>
         </div>
       </div>
       <div
         className={`${prefixCls}-content`}
-        ref={(elm) => {
+        ref={elm => {
           if (elm) {
             elm.scrollTop = 0;
           }

@@ -2,8 +2,7 @@ module.exports = {
   page: {
     'quick-start': 'Quick Start',
     theme: 'Theme',
-    button: 'Button',
-    icon: 'Icon',
+    message: 'message',
     upload: 'Upload',
   },
   category: {

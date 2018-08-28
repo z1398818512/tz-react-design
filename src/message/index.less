@@ -1,0 +1,44 @@
+.tzMessage {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #fff;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  top: 30px;
+  left: 0;
+  pointer-events: none;
+}
+.tzMessage-notice {
+  padding: 8px;
+}
+.tzMessage-notice-content {
+  padding: 10px 16px;
+  border-radius: 3px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: #4a4a4a;
+  display: inline-block;
+  pointer-events: all;
+}
+
+.tzMessage-notice.move-up-leave.move-up-leave-active {
+  animation-name: MessageMoveOut;
+  overflow: hidden;
+  animation-duration: 0.3s;
+}
+@keyframes MessageMoveOut {
+  0% {
+    opacity: 1;
+    max-height: 150px;
+    padding: 8px;
+  }
+  100% {
+    opacity: 0;
+    max-height: 0;
+    padding: 0;
+  }
+}
