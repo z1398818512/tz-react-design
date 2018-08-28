@@ -4,12 +4,13 @@ import locales from './locales';
 /* eslint import/no-webpack-loader-syntax: off */
 import QuickStart from 'bundle-loader?lazy&name=quick-start!./pages/quick-start';
 import theme from 'bundle-loader?lazy&name=theme!./pages/theme';
-import icon from 'bundle-loader?lazy&name=icon!./pages/icon';
-import button from 'bundle-loader?lazy&name=button!./pages/button';
+// import icon from 'bundle-loader?lazy&name=icon!./pages/icon';
+// import button from 'bundle-loader?lazy&name=button!./pages/button';
+import message from 'bundle-loader?lazy&name=message!./pages/message';
 import upload from 'bundle-loader?lazy&name=upload!./pages/upload';
 /* eslint import/no-webpack-loader-syntax: off */
 
-const getLang = (key) => {
+const getLang = key => {
   const locale = localStorage.getItem('WUI_LANG') || 'cn';
   const map = locales[locale] || {};
   return key.split('.').reduce((a, b) => {
@@ -20,10 +21,10 @@ const getLang = (key) => {
     return parent;
   });
 };
-const asyncComponent = comp => (props) => {
+const asyncComponent = comp => props => {
   return (
     <Bundle load={comp}>
-      {(About) => {
+      {About => {
         return (
           <About
             locale={{
@@ -48,10 +49,7 @@ const routes = {
     { path: '/:lang/theme', component: asyncComponent(theme) },
   ],
   components: {
-    Basic: [
-      { path: '/:lang/icon', component: asyncComponent(icon) },
-      { path: '/:lang/button', component: asyncComponent(button) },
-    ],
+    Basic: [{ path: '/:lang/message', component: asyncComponent(message) }],
     Form: [{ path: '/:lang/upload', component: asyncComponent(upload) }],
     'Data Display': [],
     Navigation: [],

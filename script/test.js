@@ -1,4 +1,5 @@
 // 这样做是为了让所有读取的代码都知道正确的env。
+/* eslint-disable*/
 process.env.BABEL_ENV = 'test';
 process.env.NODE_ENV = 'test';
 process.env.PUBLIC_URL = '';
@@ -9,7 +10,6 @@ process.env.PUBLIC_URL = '';
 process.on('unhandledRejection', err => {
   throw err;
 });
-
 
 const jest = require('jest');
 const argv = process.argv.slice(2);

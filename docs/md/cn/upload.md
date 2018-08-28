@@ -1,41 +1,41 @@
-Upload 标签
-===
+# Upload 标签
 
-### 拖拽上传
+### 传入获取阿里云 oss 令牌的 api 和 token。 组件会自动将文件上传至阿里云
 
-可批量拖拽图片上传。
+<!--DemoStart-->
 
-<!--DemoStart--> 
 ```js
 class Demo extends Component {
   render() {
     return (
       <div>
-        <Upload.Dragger 
-          onChange={(value1)=>{
-            console.log("value1::",value1)
+        <Upload
+          max={10}
+          onChange={info => {
+            console.log(info);
           }}
-          onRemove={(value2)=>{
-            console.log("value2::",value2)
-          }}
-          limit={3}
+          action="https://www-test.shiguangkey.com/api/v1/public/upload/getUploadToken"
+          token="0948226306592180495"
+          dirPrefix="homework"
         />
       </div>
-    )
+    );
   }
 }
 ```
+
 <!--End-->
-
-
 
 ## API
 
-### Upload.Dragger
+### Upload
 
-| 参数      | 说明    | 类型      |  默认值   |
-|--------- |-------- |---------- |-------- |
-| onChange | 拖拽完成触发,可获取图片的base64编码以及二进制编码容器blob | function(value) | - |
-| onRemove | 删除某张图片 | function(value) | - |
-| disabled | 禁止点击按钮 | Boolean | `false` |
-| limit    | 限制上传张数 | Number | - |
+| 参数      | 说明                                                                             | 类型            | 默认值                      |
+| --------- | -------------------------------------------------------------------------------- | --------------- | --------------------------- |
+| onChange  | 选择文件上传触发。操作的文件有三个状态：uploading(进行中) done(成功) error(失败) | function(value) | -                           |
+| action    | 获取客户端上传 oss 令牌 url                                                      | string          | -                           |
+| token     | 用户 token                                                                       | string          | -                           |
+| fileList  | 初始有的列表数组                                                                 | array           | []                          |
+| max       | 允许上传的最大大小 单位兆 M                                                      | int             | 非必传                      |
+| resCdn    | 下载地址的前缀域名                                                               | string          | https://res.shiguangkey.com |
+| dirPrefix | 业务名、前缀                                                                     | string          | homework                    |

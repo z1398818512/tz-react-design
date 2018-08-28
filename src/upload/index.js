@@ -1,6 +1,3 @@
-import Upload from './Upload';
-import Dragger from './Dragger';
-
-Upload.Dragger = Dragger;
+import Upload from './upload';
 
 export default Upload;
