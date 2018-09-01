@@ -4,6 +4,7 @@ module.exports = {
     theme: '主题定制',
     upload: 'Upload 上传图片',
     message: 'message 全局提示',
+    Tqdeal: '表格查询数据处理',
   },
   category: {
     Form: '表单',

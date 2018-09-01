@@ -8,6 +8,8 @@ import theme from 'bundle-loader?lazy&name=theme!./pages/theme';
 // import button from 'bundle-loader?lazy&name=button!./pages/button';
 import message from 'bundle-loader?lazy&name=message!./pages/message';
 import upload from 'bundle-loader?lazy&name=upload!./pages/upload';
+import Tqdeal from 'bundle-loader?lazy&name=Tqdeal!./pages/Tqdeal';
+
 /* eslint import/no-webpack-loader-syntax: off */
 
 const getLang = key => {
@@ -49,7 +51,10 @@ const routes = {
     { path: '/:lang/theme', component: asyncComponent(theme) },
   ],
   components: {
-    Basic: [{ path: '/:lang/message', component: asyncComponent(message) }],
+    Basic: [
+      { path: '/:lang/message', component: asyncComponent(message) },
+      { path: '/:lang/Tqdeal', component: asyncComponent(Tqdeal) },
+    ],
     Form: [{ path: '/:lang/upload', component: asyncComponent(upload) }],
     'Data Display': [],
     Navigation: [],

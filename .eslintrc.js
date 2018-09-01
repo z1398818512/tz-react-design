@@ -61,6 +61,7 @@ const eslintrc = {
     'no-unused-expressions': 0,
     'linebreak-style': 0,
     'arrow-parens': 0,
+    'no-var': 0,
   },
 };
 
