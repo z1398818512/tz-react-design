@@ -5,6 +5,7 @@ module.exports = {
     upload: 'Upload 上传图片',
     message: 'message 全局提示',
     Tqdeal: '表格查询数据处理',
+    tableHoc: '条件筛选表格查询生成',
   },
   category: {
     Form: '表单',

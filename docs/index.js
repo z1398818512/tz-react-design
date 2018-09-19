@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
 // import { render } from 'react-dom';
-import { hot } from 'react-hot-loader'
+import { hot } from 'react-hot-loader';
 import { AppContainer } from 'react-hot-loader';
 
 /* eslint import/no-webpack-loader-syntax: off */
@@ -22,4 +22,9 @@ import '../src/index.less';
 
 // render(<Router />, document.getElementById('app'));
 // render(hot(module)(Router), document.getElementById('app'));
-ReactDOM.render(<AppContainer><Router /></AppContainer>, document.getElementById('app'));
+ReactDOM.render(
+  <AppContainer>
+    <Router />
+  </AppContainer>,
+  document.getElementById('app')
+);

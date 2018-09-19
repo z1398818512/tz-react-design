@@ -9,6 +9,7 @@ import theme from 'bundle-loader?lazy&name=theme!./pages/theme';
 import message from 'bundle-loader?lazy&name=message!./pages/message';
 import upload from 'bundle-loader?lazy&name=upload!./pages/upload';
 import Tqdeal from 'bundle-loader?lazy&name=Tqdeal!./pages/Tqdeal';
+import TableHoc from 'bundle-loader?lazy&name=tableHoc!./pages/tableHoc';
 
 /* eslint import/no-webpack-loader-syntax: off */
 
@@ -54,6 +55,7 @@ const routes = {
     Basic: [
       { path: '/:lang/message', component: asyncComponent(message) },
       { path: '/:lang/Tqdeal', component: asyncComponent(Tqdeal) },
+      { path: '/:lang/tableHoc', component: asyncComponent(TableHoc) },
     ],
     Form: [{ path: '/:lang/upload', component: asyncComponent(upload) }],
     'Data Display': [],
