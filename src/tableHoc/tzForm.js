@@ -64,7 +64,7 @@ class TzForm extends React.Component {
           addonBefore,
         } = item;
         const itemLayout = addonBefore
-          ? { labelCol: { span: 0 }, wrapperCol: { span: 24 } }
+          ? { labelCol: { span: 0 }, wrapperCol: { span: 23 } }
           : {
               labelCol: {
                 xs: { span: 7 },

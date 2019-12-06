@@ -44,6 +44,8 @@ export default class UploadFile extends React.Component {
     max: PropTypes.number,
     action: PropTypes.string.isRequired,
     token: PropTypes.string.isRequired,
+    type: PropTypes.array,
+    beforeUpload: PropTypes.func,
   };
 
   static defaultProps = {
@@ -155,8 +157,17 @@ export default class UploadFile extends React.Component {
     this.onChange({ file: { ...targetItem }, fileList });
   };
   beforeUpload = file => {
+    /*eslint-disable */
+    debugger;
+    if (this.props.beforeUpload && !this.props.beforeUpload(file)) {
+      return false;
+    }
     if (this.props.max && file.size / 1024 / 1024 > this.props.max) {
       Message.msg(`文件大小超出限制，大小不能超过${this.props.max}M`);
+      return false;
+    }
+    if (this.props.type && this.props.type.indexOf(file.type) === -1) {
+      Message.msg('文件类型错误');
       return false;
     }
     return axios

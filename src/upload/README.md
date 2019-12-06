@@ -21,3 +21,7 @@
 # dirPrefix [string] 业务名、前缀 默认“homework”
 
 # {children} 自定义按钮 dom ,不传则为默认
+
+# type [array] 允许上传的文件格式（以 file 文件对象的 type 属性值来判断的)
+
+# beforeUpload [function] 上传文件之前的钩子，参数为上传的文件对象，若返回 false 则停止上传。
